@@ -32,6 +32,11 @@ public class assignment3 extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        menuBar = new javax.swing.JMenuBar();
+        menuButton = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        classTypeMenu = new javax.swing.JMenuItem();
+        DNSValidMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,6 +49,41 @@ public class assignment3 extends javax.swing.JFrame {
         jButton1.setText("Read File");
 
         jButton2.setText("Save File");
+
+        menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        menuBar.setToolTipText("");
+
+        menuButton.setText("Week 3");
+        menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jMenuItem1.setText("Read File");
+        jMenuItem1.setEnabled(false);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuButton.add(jMenuItem1);
+
+        classTypeMenu.setText("Save Byte File");
+        classTypeMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                classTypeMenuActionPerformed(evt);
+            }
+        });
+        menuButton.add(classTypeMenu);
+
+        DNSValidMenu.setText("Save File ");
+        DNSValidMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DNSValidMenuActionPerformed(evt);
+            }
+        });
+        menuButton.add(DNSValidMenu);
+
+        menuBar.add(menuButton);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,11 +115,30 @@ public class assignment3 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void classTypeMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classTypeMenuActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        assignment2 menu;
+        menu = new assignment2();
+        menu.setVisible(true);
+    }//GEN-LAST:event_classTypeMenuActionPerformed
+
+    private void DNSValidMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNSValidMenuActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        assignment3 menu = new assignment3();
+        menu.setVisible(true);
+    }//GEN-LAST:event_DNSValidMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,11 +176,16 @@ public class assignment3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem DNSValidMenu;
+    private javax.swing.JMenuItem classTypeMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFileChooser loadFile;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuButton;
     // End of variables declaration//GEN-END:variables
 }
