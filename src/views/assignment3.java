@@ -1,3 +1,9 @@
+package views;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
+import practicum1_week3.Assignment3;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +15,13 @@
  * @author Ilham A
  */
 public class assignment3 extends javax.swing.JFrame {
-
+    private Assignment3 controller;
     /**
      * Creates new form assignment3
      */
     public assignment3() {
         initComponents();
+        controller = new Assignment3(this);
     }
 
     /**
@@ -29,9 +36,9 @@ public class assignment3 extends javax.swing.JFrame {
         loadFile = new javax.swing.JFileChooser();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtArea = new javax.swing.JTextArea();
+        btnRead = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuButton = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,13 +49,13 @@ public class assignment3 extends javax.swing.JFrame {
 
         jLabel1.setText("Praktikum 3");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
-        jButton1.setText("Read File");
+        btnRead.setText("Read File");
 
-        jButton2.setText("Save File");
+        btnSave.setText("Save File");
 
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuBar.setToolTipText("");
@@ -57,7 +64,6 @@ public class assignment3 extends javax.swing.JFrame {
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenuItem1.setText("Read File");
-        jMenuItem1.setEnabled(false);
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -74,6 +80,7 @@ public class assignment3 extends javax.swing.JFrame {
         menuButton.add(classTypeMenu);
 
         DNSValidMenu.setText("Save File ");
+        DNSValidMenu.setEnabled(false);
         DNSValidMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DNSValidMenuActionPerformed(evt);
@@ -95,9 +102,9 @@ public class assignment3 extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(btnSave)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btnRead)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(158, 158, 158)
@@ -113,16 +120,36 @@ public class assignment3 extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnRead)
+                    .addComponent(btnSave))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtnRead() {
+        return btnRead;
+    }
+
+    public JButton getBtnSave() {
+        return btnSave;
+    }
+
+    public JFileChooser getLoadFile() {
+        return loadFile;
+    }
+
+    public JTextArea getTxtArea() {
+        return txtArea;
+    }
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        assignment1 menu;
+        menu = new assignment1();
+        menu.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void classTypeMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classTypeMenuActionPerformed
@@ -140,52 +167,18 @@ public class assignment3 extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_DNSValidMenuActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(assignment3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(assignment3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(assignment3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(assignment3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new assignment3().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem DNSValidMenu;
+    private javax.swing.JButton btnRead;
+    private javax.swing.JButton btnSave;
     private javax.swing.JMenuItem classTypeMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFileChooser loadFile;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
+    private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 }
