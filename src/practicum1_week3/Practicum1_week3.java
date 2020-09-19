@@ -5,6 +5,7 @@
  */
 package practicum1_week3;
 
+import views.*;
 /**
  *
  * @author Ilham A
@@ -15,7 +16,7 @@ public class Practicum1_week3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new assignment1().setVisible(true);
     }
     
 }

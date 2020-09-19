@@ -1,3 +1,9 @@
+package views;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
+import practicum1_week3.Assignment1;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +15,13 @@
  * @author Ilham A
  */
 public class assignment1 extends javax.swing.JFrame {
-
+    private final Assignment1 controller;
     /**
      * Creates new form assignment1
      */
     public assignment1() {
         initComponents();
+        controller=new Assignment1(this);
     }
 
     /**
@@ -28,24 +35,29 @@ public class assignment1 extends javax.swing.JFrame {
 
         loadFile = new javax.swing.JFileChooser();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRead = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
         menuBar = new javax.swing.JMenuBar();
         menuButton = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        classTypeMenu = new javax.swing.JMenuItem();
-        DNSValidMenu = new javax.swing.JMenuItem();
+        readFile = new javax.swing.JMenuItem();
+        saveByte = new javax.swing.JMenuItem();
+        saveFile = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Praktikum 1");
 
-        jButton1.setText("Read File");
+        btnRead.setText("Read File");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuBar.setToolTipText("");
@@ -53,30 +65,30 @@ public class assignment1 extends javax.swing.JFrame {
         menuButton.setText("Week 3");
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jMenuItem1.setText("Read File");
-        jMenuItem1.setEnabled(false);
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        readFile.setText("Read File");
+        readFile.setEnabled(false);
+        readFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                readFileActionPerformed(evt);
             }
         });
-        menuButton.add(jMenuItem1);
+        menuButton.add(readFile);
 
-        classTypeMenu.setText("Save Byte File");
-        classTypeMenu.addActionListener(new java.awt.event.ActionListener() {
+        saveByte.setText("Save Byte File");
+        saveByte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                classTypeMenuActionPerformed(evt);
+                saveByteActionPerformed(evt);
             }
         });
-        menuButton.add(classTypeMenu);
+        menuButton.add(saveByte);
 
-        DNSValidMenu.setText("Save File ");
-        DNSValidMenu.addActionListener(new java.awt.event.ActionListener() {
+        saveFile.setText("Save File ");
+        saveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DNSValidMenuActionPerformed(evt);
+                saveFileActionPerformed(evt);
             }
         });
-        menuButton.add(DNSValidMenu);
+        menuButton.add(saveFile);
 
         menuBar.add(menuButton);
 
@@ -91,7 +103,7 @@ public class assignment1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(btnRead))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -107,75 +119,60 @@ public class assignment1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnRead)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void readFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readFileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_readFileActionPerformed
 
-    private void classTypeMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classTypeMenuActionPerformed
+    private void saveByteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveByteActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         assignment2 menu;
         menu = new assignment2();
         menu.setVisible(true);
-    }//GEN-LAST:event_classTypeMenuActionPerformed
+    }//GEN-LAST:event_saveByteActionPerformed
 
-    private void DNSValidMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNSValidMenuActionPerformed
+    private void saveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         assignment3 menu = new assignment3();
         menu.setVisible(true);
-    }//GEN-LAST:event_DNSValidMenuActionPerformed
+    }//GEN-LAST:event_saveFileActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(assignment1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(assignment1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(assignment1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(assignment1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+        // TODO add your handling code here:
+        controller.read();
+    }//GEN-LAST:event_btnReadActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new assignment1().setVisible(true);
-        });
+
+    public JButton getBtnRead() {
+        return btnRead;
+    }
+
+    public JFileChooser getLoadFile() {
+        return loadFile;
+    }
+
+    public JTextArea getTxtArea() {
+        return txtArea;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem DNSValidMenu;
-    private javax.swing.JMenuItem classTypeMenu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRead;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFileChooser loadFile;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
+    private javax.swing.JMenuItem readFile;
+    private javax.swing.JMenuItem saveByte;
+    private javax.swing.JMenuItem saveFile;
+    private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 }
