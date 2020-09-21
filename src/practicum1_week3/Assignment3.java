@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import views.assignment3;
@@ -60,6 +61,7 @@ public class Assignment3 {
                          writer.flush();
                          writer.close();
                          view.getTxtArea().setText("");
+                         JOptionPane.showMessageDialog(view, "The file have been saved", "Success", JOptionPane.INFORMATION_MESSAGE);
                      } catch (IOException ex) {
                          Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
                      }
@@ -77,7 +79,7 @@ public class Assignment3 {
                  String data = null;
                  doc.insertString(0, "", null);
                  while ((data = reader.readLine()) != null) {
-                     doc.insertString(doc.getLength(), data, null);
+                     doc.insertString(doc.getLength(), data+"\n", null);
                  }
              } catch (FileNotFoundException ex) {
                  Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
