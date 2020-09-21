@@ -6,10 +6,12 @@ package practicum1_week3;
  *
  * @author Arga
  */
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -30,13 +32,14 @@ public class Assignment1 {
              InputStream inputStream = null;
              try {
                  inputStream = new FileInputStream(loadFile.getSelectedFile());
-                 int read = inputStream.read();
-                 doc.insertString(0, "", null);
-                 while (read != -1) {
-                     doc.insertString(doc.getLength(), "" + read, null);
-                     System.out.println("" + read);
-                     read = inputStream.read();
+                 InputStreamReader reader = new InputStreamReader(inputStream);
+                 BufferedReader br= new BufferedReader(reader);
+                 StringBuilder sb=new StringBuilder();
+                 String str;
+                 while ((str = br.readLine())!=null) {
+                     sb.append(str);
                  }
+                 doc.insertString(0, sb.toString(), null);
              } catch (FileNotFoundException ex) {
                  Logger.getLogger(Assignment1.class.getName()).log(Level.SEVERE, null, ex);
              } catch (IOException | BadLocationException ex) {
