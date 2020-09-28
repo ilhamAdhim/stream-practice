@@ -181,4 +181,8 @@ public class assignment3 extends javax.swing.JFrame {
     private javax.swing.JMenu menuButton;
     private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
+
+    public Object getTxtPane() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
