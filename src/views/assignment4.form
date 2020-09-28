@@ -16,7 +16,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Week 3"/>
+            <Property name="text" type="java.lang.String" value="Practice"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -40,11 +40,19 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="DNSValidMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Save File "/>
+                <Property name="text" type="java.lang.String" value="Filter Stream"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DNSValidMenuActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="rectArea">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AreaCalculator"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rectAreaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -115,7 +123,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Praktikum 3"/>
+        <Property name="text" type="java.lang.String" value="Praktikum 4"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

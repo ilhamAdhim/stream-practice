@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
-import practicum1_week3.Assignment2;
+import controller.Assignment2;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -49,6 +49,7 @@ public class assignment2 extends javax.swing.JFrame {
         readFile = new javax.swing.JMenuItem();
         saveByte = new javax.swing.JMenuItem();
         saveFile = new javax.swing.JMenuItem();
+        rectArea = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +76,7 @@ public class assignment2 extends javax.swing.JFrame {
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuBar.setToolTipText("");
 
-        menuButton.setText("Week 3");
+        menuButton.setText("Practice");
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         readFile.setText("Read File");
@@ -95,13 +96,21 @@ public class assignment2 extends javax.swing.JFrame {
         });
         menuButton.add(saveByte);
 
-        saveFile.setText("Save File ");
+        saveFile.setText("Filter Stream");
         saveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveFileActionPerformed(evt);
             }
         });
         menuButton.add(saveFile);
+
+        rectArea.setText("AreaCalculator");
+        rectArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rectAreaActionPerformed(evt);
+            }
+        });
+        menuButton.add(rectArea);
 
         menuBar.add(menuButton);
 
@@ -184,9 +193,16 @@ public class assignment2 extends javax.swing.JFrame {
     private void saveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFileActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        assignment3 menu = new assignment3();
+        assignment4 menu = new assignment4();
         menu.setVisible(true);
     }//GEN-LAST:event_saveFileActionPerformed
+
+    private void rectAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rectAreaActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AreaCalc rect = new AreaCalc();
+        rect.setVisible(true);
+    }//GEN-LAST:event_rectAreaActionPerformed
 
     public JFileChooser getLoadFile() {
         return loadFile;
@@ -207,6 +223,7 @@ public class assignment2 extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
     private javax.swing.JMenuItem readFile;
+    private javax.swing.JMenuItem rectArea;
     private javax.swing.JMenuItem saveByte;
     private javax.swing.JMenuItem saveFile;
     private javax.swing.JTextArea txtArea;

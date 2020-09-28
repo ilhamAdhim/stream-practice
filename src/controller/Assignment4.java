@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practicum1_week3;
+package controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -24,22 +24,22 @@ import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.StyledDocument;
-import views.assignment3;
+import views.assignment4;
 
 /**
  *
  * @author ASUS
  */
-public class Assignment3 {
-    private assignment3 view;
+public class Assignment4 {
+    private assignment4 view;
 
-    public Assignment3(assignment3 view){
+    public Assignment4(assignment4 view){
         this.view=view;
         this.view.getBtnRead().addActionListener((e) -> {
             try {
                 read();
             } catch (BadLocationException ex) {
-                Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         this.view.getBtnSave().addActionListener((e) -> {
@@ -56,14 +56,14 @@ public class Assignment3 {
                  String contents = view.getTxtArea().getText();
                  if (contents != null && !contents.isEmpty()) {
                      writer = new BufferedOutputStream(new FileOutputStream(loadFile.getSelectedFile()));
-                     writer.write(contents.getBytes());
+                     writer.write(contents.getBytes(), 0, contents.length());
                      JOptionPane.showMessageDialog(view, "File berhasil ditulis.", "Informasi", JOptionPane.INFORMATION_MESSAGE);
                  }
 
              } catch (FileNotFoundException ex) {
-                 Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
              } catch (IOException ex) {
-                 Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
              } finally {
                  if (writer != null) {
                      try {
@@ -71,7 +71,7 @@ public class Assignment3 {
                          writer.close();
                          view.getTxtArea().setText("");
                      } catch (IOException ex) {
-                         Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                         Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
                      }
                  }
              }
@@ -86,31 +86,31 @@ public class Assignment3 {
                  try {
                      reader = new BufferedInputStream(new FileInputStream(loadFile.getSelectedFile()));
                      doc.insertString(0, "", null);
+                     
                      int temp = 0;
-                     List<Integer> list = new ArrayList<>();
-                     while ((temp=reader.read()) != -1) {                    
-                         list.add(temp);
-                     }
-                     if (!list.isEmpty()) {
-                         byte[] dt = new byte[list.size()];
-                         int i = 0;
-                         for (Integer integer : list) {
-                             dt[i]=integer.byteValue();
-                             i++;
-                         }
+//                     List<Integer> list = new ArrayList<>();
+                     byte[] dt = new byte[reader.available()];
+                     while ((temp=reader.read(dt)) != -1);
+//                     if (!list.isEmpty()) {
+//                         byte[] dt = new byte[list.size()];
+//                         int i = 0;
+//                         for (Integer integer : list) {
+//                             dt[i]=integer.byteValue();
+//                             i++;
+//                         }
                          doc.insertString(doc.getLength(), new String(dt), null);
                          JOptionPane.showMessageDialog(view, "File berhasil dibaca.", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-                     }
+//                     }
                  } catch (FileNotFoundException ex) {
-                     Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                     Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
                  } catch (IOException | BadLocationException ex) {
-                     Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                     Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
                  } finally {
                      if (reader != null) {
                          try {
                              reader.close();
                          } catch (IOException ex) {
-                             Logger.getLogger(Assignment3.class.getName()).log(Level.SEVERE, null, ex);
+                             Logger.getLogger(Assignment4.class.getName()).log(Level.SEVERE, null, ex);
                          }
                      }
                  }
