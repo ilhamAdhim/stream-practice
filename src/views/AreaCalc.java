@@ -7,14 +7,8 @@ package views;
 
 import controller.Logs;
 import java.awt.HeadlessException;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.logging.FileHandler;
+import java.util.Calendar;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -381,6 +375,7 @@ public class AreaCalc extends javax.swing.JFrame {
         
         String logMessage="";
         Level level=null;
+        Calendar cal = Calendar.getInstance();
         try{
             if(!txtLength.getText().isEmpty() && !txtWidth.getText().isEmpty()){
                 String length=txtLength.getText();
@@ -391,8 +386,8 @@ public class AreaCalc extends javax.swing.JFrame {
                     if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
                         isNumber=false;
                         level = Level.WARNING;
-                        logMessage = "Operation with non numeric value";
-                        log.setLogErr(level, logMessage);
+                        logMessage = cal.getTime()+" | Operation Error\nOperation with non numeric value";
+                        log.setLogErr(logMessage);
                         JOptionPane.showMessageDialog(rootPane, "Length and Width field should be a number", "Error", JOptionPane.ERROR_MESSAGE);
                         break;
                     }
@@ -400,14 +395,14 @@ public class AreaCalc extends javax.swing.JFrame {
                 if(isNumber){
                     this.txtArea.setText(String.valueOf(controller.getArea()));
                     this.txtPerimeter.setText(String.valueOf(controller.getPerimeter()));
-                    level = Level.FINE;
-                    logMessage = "Rectangle "+txtLength.getText()+" x "+txtWidth.getText()+" | Area = "+controller.getArea()+" - Perimeter = "+controller.getPerimeter();
-                    log.setLog(level, logMessage);
+                    
+                    logMessage = cal.getTime()+" | Operation Fine\nRectangle "+txtLength.getText()+" x "+txtWidth.getText()+" | Area = "+controller.getArea()+" - Perimeter = "+controller.getPerimeter();
+                    log.setLog(logMessage);
                 }
             }else{
-                level = Level.WARNING;
-                logMessage = "Operation with empty Length or Width field";
-                log.setLogErr(level, logMessage);
+                
+                logMessage = cal.getTime()+" | Operation Warning\nOperation with empty Length or Width field";
+                log.setLogErr(logMessage);
                 JOptionPane.showMessageDialog(rootPane, "Length and Width field should not be empty", "Warning", JOptionPane.WARNING_MESSAGE);
             }
             
@@ -426,7 +421,8 @@ public class AreaCalc extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        Logs.fh.close();
+        Logs.output.close();
+        Logs.outputErr.close();
     }//GEN-LAST:event_formWindowClosing
 
 
