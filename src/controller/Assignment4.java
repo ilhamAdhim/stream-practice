@@ -7,23 +7,16 @@ package controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
 import views.assignment4;
 
 /**
@@ -58,6 +51,9 @@ public class Assignment4 {
                      writer = new BufferedOutputStream(new FileOutputStream(loadFile.getSelectedFile()));
                      writer.write(contents.getBytes(), 0, contents.length());
                      JOptionPane.showMessageDialog(view, "File berhasil ditulis.", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                 }else{
+                     JOptionPane.showMessageDialog(view, "Text Editor is empty. Cannot Save the document.", "Warning", JOptionPane.WARNING_MESSAGE);
+                     
                  }
 
              } catch (FileNotFoundException ex) {
@@ -90,7 +86,9 @@ public class Assignment4 {
                      int temp = 0;
 //                     List<Integer> list = new ArrayList<>();
                      byte[] dt = new byte[reader.available()];
-                     while ((temp=reader.read(dt)) != -1);
+                     if(!(reader.available() <= 0)){
+                        while ((temp=reader.read(dt)) != -1);
+                     }
 //                     if (!list.isEmpty()) {
 //                         byte[] dt = new byte[list.size()];
 //                         int i = 0;

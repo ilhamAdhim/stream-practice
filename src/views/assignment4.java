@@ -1,6 +1,5 @@
 package views;
 
-import java.awt.Point;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JTextArea;
