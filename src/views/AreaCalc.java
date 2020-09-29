@@ -8,7 +8,6 @@ package views;
 import controller.Logs;
 import java.awt.HeadlessException;
 import java.util.Calendar;
-import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -219,7 +218,7 @@ public class AreaCalc extends javax.swing.JFrame {
         });
         menuButton.add(saveByte);
 
-        saveFile.setText("Save File ");
+        saveFile.setText("Filter Stream");
         saveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveFileActionPerformed(evt);
@@ -269,22 +268,19 @@ public class AreaCalc extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jLabel5)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btnCalculate)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(btnCalculate)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(125, Short.MAX_VALUE))))
+                            .addComponent(jLabel2)
+                            .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +370,6 @@ public class AreaCalc extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String logMessage="";
-        Level level=null;
         Calendar cal = Calendar.getInstance();
         try{
             if(!txtLength.getText().isEmpty() && !txtWidth.getText().isEmpty()){
@@ -385,7 +380,6 @@ public class AreaCalc extends javax.swing.JFrame {
                 for(char c:check.toCharArray()){
                     if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
                         isNumber=false;
-                        level = Level.WARNING;
                         logMessage = cal.getTime()+" | Operation Error\nOperation with non numeric value";
                         log.setLogErr(logMessage);
                         JOptionPane.showMessageDialog(rootPane, "Length and Width field should be a number", "Error", JOptionPane.ERROR_MESSAGE);
@@ -393,11 +387,17 @@ public class AreaCalc extends javax.swing.JFrame {
                     }
                 }
                 if(isNumber){
-                    this.txtArea.setText(String.valueOf(controller.getArea()));
-                    this.txtPerimeter.setText(String.valueOf(controller.getPerimeter()));
-                    
-                    logMessage = cal.getTime()+" | Operation Fine\nRectangle "+txtLength.getText()+" x "+txtWidth.getText()+" | Area = "+controller.getArea()+" - Perimeter = "+controller.getPerimeter();
-                    log.setLog(logMessage);
+                    if(Integer.valueOf(length)<=0 || Integer.valueOf(width)<=0){
+                        logMessage = cal.getTime()+" | Operation Error\nInvalid input number. Zero operation Error";
+                        log.setLogErr(logMessage);
+                        JOptionPane.showMessageDialog(rootPane, "Invalid input number of zero operation.","Error",JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        this.txtArea.setText(String.valueOf(controller.getArea()));
+                        this.txtPerimeter.setText(String.valueOf(controller.getPerimeter()));
+
+                        logMessage = cal.getTime()+" | Operation Fine\nRectangle "+txtLength.getText()+" x "+txtWidth.getText()+" | Area = "+controller.getArea()+" - Perimeter = "+controller.getPerimeter();
+                        log.setLog(logMessage);
+                    }
                 }
             }else{
                 
