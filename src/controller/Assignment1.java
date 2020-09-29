@@ -1,6 +1,6 @@
 
 
-package practicum1_week3;
+package controller;
 
 /**
  *
