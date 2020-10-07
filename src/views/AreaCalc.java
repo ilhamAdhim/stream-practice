@@ -26,6 +26,7 @@ public class AreaCalc extends javax.swing.JFrame {
         initComponents();
         controller=new controller.AreaCalc(this);
         log=new Logs(this);
+        this.setTitle("Network Programming");
     }
 
     /**
@@ -67,6 +68,7 @@ public class AreaCalc extends javax.swing.JFrame {
         saveByte = new javax.swing.JMenuItem();
         saveFile = new javax.swing.JMenuItem();
         rectArea = new javax.swing.JMenuItem();
+        mnlineNumber = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -196,9 +198,11 @@ public class AreaCalc extends javax.swing.JFrame {
             }
         });
 
+        menuBar.setBackground(new java.awt.Color(204, 204, 255));
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuBar.setToolTipText("");
 
+        menuButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         menuButton.setText("Practice");
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -234,6 +238,14 @@ public class AreaCalc extends javax.swing.JFrame {
             }
         });
         menuButton.add(rectArea);
+
+        mnlineNumber.setText("Line Number");
+        mnlineNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnlineNumberActionPerformed(evt);
+            }
+        });
+        menuButton.add(mnlineNumber);
 
         menuBar.add(menuButton);
 
@@ -318,7 +330,7 @@ public class AreaCalc extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(txtPerimeter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -425,6 +437,13 @@ public class AreaCalc extends javax.swing.JFrame {
         Logs.outputErr.close();
     }//GEN-LAST:event_formWindowClosing
 
+    private void mnlineNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnlineNumberActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        assignment5 view = new assignment5();
+        view.setVisible(true);
+    }//GEN-LAST:event_mnlineNumberActionPerformed
+
 
     public JTextField getTxtLength() {
         return txtLength;
@@ -457,6 +476,7 @@ public class AreaCalc extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
+    private javax.swing.JMenuItem mnlineNumber;
     private javax.swing.JMenuItem readFile;
     private javax.swing.JMenuItem rectArea;
     private javax.swing.JMenuItem saveByte;

@@ -22,6 +22,7 @@ public class assignment1 extends javax.swing.JFrame {
     public assignment1() {
         initComponents();
         controller=new Assignment1(this);
+        this.setTitle("Network Programming");
     }
 
     /**
@@ -44,6 +45,7 @@ public class assignment1 extends javax.swing.JFrame {
         saveByte = new javax.swing.JMenuItem();
         saveFile = new javax.swing.JMenuItem();
         rectArea = new javax.swing.JMenuItem();
+        mnlineNumber = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 255));
@@ -61,10 +63,11 @@ public class assignment1 extends javax.swing.JFrame {
         txtArea.setRows(5);
         jScrollPane1.setViewportView(txtArea);
 
-        menuBar.setBackground(new java.awt.Color(51, 102, 255));
+        menuBar.setBackground(new java.awt.Color(204, 204, 255));
         menuBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         menuBar.setToolTipText("");
 
+        menuButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         menuButton.setText("Practice");
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -101,6 +104,14 @@ public class assignment1 extends javax.swing.JFrame {
         });
         menuButton.add(rectArea);
 
+        mnlineNumber.setText("Line Number");
+        mnlineNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnlineNumberActionPerformed(evt);
+            }
+        });
+        menuButton.add(mnlineNumber);
+
         menuBar.add(menuButton);
 
         setJMenuBar(menuBar);
@@ -131,7 +142,7 @@ public class assignment1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRead)
                 .addGap(6, 6, 6))
@@ -171,6 +182,13 @@ public class assignment1 extends javax.swing.JFrame {
         rect.setVisible(true);
     }//GEN-LAST:event_rectAreaActionPerformed
 
+    private void mnlineNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnlineNumberActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        assignment5 view = new assignment5();
+        view.setVisible(true);
+    }//GEN-LAST:event_mnlineNumberActionPerformed
+
 
     public JButton getBtnRead() {
         return btnRead;
@@ -191,6 +209,7 @@ public class assignment1 extends javax.swing.JFrame {
     private javax.swing.JFileChooser loadFile;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
+    private javax.swing.JMenuItem mnlineNumber;
     private javax.swing.JMenuItem readFile;
     private javax.swing.JMenuItem rectArea;
     private javax.swing.JMenuItem saveByte;

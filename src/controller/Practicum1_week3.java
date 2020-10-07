@@ -17,6 +17,7 @@ public class Practicum1_week3 {
      */
     public static void main(String[] args) {
         new assignment1().setVisible(true);
+        
     }
     
 }
