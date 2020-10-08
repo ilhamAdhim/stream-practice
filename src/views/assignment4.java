@@ -21,6 +21,7 @@ public class assignment4 extends javax.swing.JFrame {
     public assignment4() {
         initComponents();
         controller = new Assignment4(this);
+        this.setTitle("Network Programming");
     }
 
     /**
@@ -44,6 +45,7 @@ public class assignment4 extends javax.swing.JFrame {
         classTypeMenu = new javax.swing.JMenuItem();
         DNSValidMenu = new javax.swing.JMenuItem();
         rectArea = new javax.swing.JMenuItem();
+        mnlineNumber = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,9 +59,11 @@ public class assignment4 extends javax.swing.JFrame {
 
         btnSave.setText("Save File");
 
+        menuBar.setBackground(new java.awt.Color(204, 204, 255));
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuBar.setToolTipText("");
 
+        menuButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         menuButton.setText("Practice");
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -95,6 +99,14 @@ public class assignment4 extends javax.swing.JFrame {
             }
         });
         menuButton.add(rectArea);
+
+        mnlineNumber.setText("Line Number");
+        mnlineNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnlineNumberActionPerformed(evt);
+            }
+        });
+        menuButton.add(mnlineNumber);
 
         menuBar.add(menuButton);
 
@@ -182,6 +194,13 @@ public class assignment4 extends javax.swing.JFrame {
         rect.setVisible(true);
     }//GEN-LAST:event_rectAreaActionPerformed
 
+    private void mnlineNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnlineNumberActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        assignment5 view = new assignment5();
+        view.setVisible(true);
+    }//GEN-LAST:event_mnlineNumberActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem DNSValidMenu;
@@ -194,6 +213,7 @@ public class assignment4 extends javax.swing.JFrame {
     private javax.swing.JFileChooser loadFile;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
+    private javax.swing.JMenuItem mnlineNumber;
     private javax.swing.JMenuItem rectArea;
     private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
