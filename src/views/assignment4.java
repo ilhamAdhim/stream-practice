@@ -3,25 +3,25 @@ package views;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JTextArea;
-import practicum1_week3.Assignment3;
+import controller.Assignment4;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
 
 /**
  *
  * @author Ilham A
  */
-public class assignment3 extends javax.swing.JFrame {
-    private Assignment3 controller;
+public class assignment4 extends javax.swing.JFrame {
+    private Assignment4 controller;
     /**
      * Creates new form assignment3
      */
-    public assignment3() {
+    public assignment4() {
         initComponents();
-        controller = new Assignment3(this);
+        controller = new Assignment4(this);
+        this.setTitle("Network Programming");
     }
 
     /**
@@ -44,10 +44,12 @@ public class assignment3 extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         classTypeMenu = new javax.swing.JMenuItem();
         DNSValidMenu = new javax.swing.JMenuItem();
+        rectArea = new javax.swing.JMenuItem();
+        mnlineNumber = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Praktikum 3");
+        jLabel1.setText("Praktikum 4");
 
         txtArea.setColumns(20);
         txtArea.setRows(5);
@@ -57,10 +59,12 @@ public class assignment3 extends javax.swing.JFrame {
 
         btnSave.setText("Save File");
 
+        menuBar.setBackground(new java.awt.Color(204, 204, 255));
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuBar.setToolTipText("");
 
-        menuButton.setText("Week 3");
+        menuButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        menuButton.setText("Practice");
         menuButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenuItem1.setText("Read File");
@@ -79,7 +83,7 @@ public class assignment3 extends javax.swing.JFrame {
         });
         menuButton.add(classTypeMenu);
 
-        DNSValidMenu.setText("Save File ");
+        DNSValidMenu.setText("Filter Stream");
         DNSValidMenu.setEnabled(false);
         DNSValidMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +91,22 @@ public class assignment3 extends javax.swing.JFrame {
             }
         });
         menuButton.add(DNSValidMenu);
+
+        rectArea.setText("AreaCalculator");
+        rectArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rectAreaActionPerformed(evt);
+            }
+        });
+        menuButton.add(rectArea);
+
+        mnlineNumber.setText("Line Number");
+        mnlineNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnlineNumberActionPerformed(evt);
+            }
+        });
+        menuButton.add(mnlineNumber);
 
         menuBar.add(menuButton);
 
@@ -163,9 +183,23 @@ public class assignment3 extends javax.swing.JFrame {
     private void DNSValidMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNSValidMenuActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        assignment3 menu = new assignment3();
+        assignment4 menu = new assignment4();
         menu.setVisible(true);
     }//GEN-LAST:event_DNSValidMenuActionPerformed
+
+    private void rectAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rectAreaActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AreaCalc rect = new AreaCalc();
+        rect.setVisible(true);
+    }//GEN-LAST:event_rectAreaActionPerformed
+
+    private void mnlineNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnlineNumberActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        assignment5 view = new assignment5();
+        view.setVisible(true);
+    }//GEN-LAST:event_mnlineNumberActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -179,6 +213,8 @@ public class assignment3 extends javax.swing.JFrame {
     private javax.swing.JFileChooser loadFile;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
+    private javax.swing.JMenuItem mnlineNumber;
+    private javax.swing.JMenuItem rectArea;
     private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 

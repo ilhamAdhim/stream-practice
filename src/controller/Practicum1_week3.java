@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practicum1_week3;
+package controller;
 
 import views.*;
 /**
@@ -17,6 +17,7 @@ public class Practicum1_week3 {
      */
     public static void main(String[] args) {
         new assignment1().setVisible(true);
+        
     }
     
 }
