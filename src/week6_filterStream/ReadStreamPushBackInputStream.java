@@ -7,7 +7,6 @@ package week6_filterStream;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.LineNumberInputStream;
 import java.io.PushbackInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,9 +17,8 @@ import java.util.logging.Logger;
  */
 public class ReadStreamPushBackInputStream {
     public static void main(String[] args) {
-        try {;
-            String directory = "C:/Users/Ilham A/Documents/Kuliah smt 5/Networking/week 6/coba.txt";
-            PushbackInputStream stream = new PushbackInputStream(new FileInputStream(directory),200);
+        try {
+            PushbackInputStream stream = new PushbackInputStream(new FileInputStream("coba.txt"),200);
             byte[] bytes = new byte[stream.available()];
             stream.read(bytes);
             System.out.println(new String(bytes));

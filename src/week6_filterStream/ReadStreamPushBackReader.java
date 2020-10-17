@@ -21,14 +21,18 @@ import java.util.logging.Logger;
  */
 public class ReadStreamPushBackReader {
     public static void main(String[] args) {
-        String s = "Polinema tetap jaya selalu di kancah nasional dan akan berlanjut ke internasional";
-        PushbackReader reader = new PushbackReader(new InputStreamReader(new ByteArrayInputStream(s.getBytes())));
-        char[] words = new char[s.length()];
         try {
-            reader.read(words);
-            System.out.println("" + new String(words));
-            words = new char[8];
-            reader.unread(words);
+            PushbackReader reader = new PushbackReader(new InputStreamReader(new FileInputStream("coba.txt")), 100);
+            int read;
+            while((read=reader.read())!=-1){
+                System.out.print((char)read);
+            }
+            char[] newWords = "Politeknik Negeri Malang".toCharArray();
+            System.out.println("\nAfter unread");
+            reader.unread(newWords);
+            while((read=reader.read())!=-1){
+                System.out.print((char)read);
+            }
         } catch (IOException ex) {
             Logger.getLogger(ReadStreamPushBackReader.class.getName()).log(Level.SEVERE, null, ex);
         }
