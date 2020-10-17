@@ -46,6 +46,7 @@ public class assignment4 extends javax.swing.JFrame {
         DNSValidMenu = new javax.swing.JMenuItem();
         rectArea = new javax.swing.JMenuItem();
         mnlineNumber = new javax.swing.JMenuItem();
+        rectArea1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +108,14 @@ public class assignment4 extends javax.swing.JFrame {
             }
         });
         menuButton.add(mnlineNumber);
+
+        rectArea1.setText("Pushback Assignment");
+        rectArea1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rectArea1ActionPerformed(evt);
+            }
+        });
+        menuButton.add(rectArea1);
 
         menuBar.add(menuButton);
 
@@ -201,6 +210,13 @@ public class assignment4 extends javax.swing.JFrame {
         view.setVisible(true);
     }//GEN-LAST:event_mnlineNumberActionPerformed
 
+    private void rectArea1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rectArea1ActionPerformed
+        // TODO add your handling code here:
+        assignment6 view = new assignment6();
+        this.setVisible(false);
+        view.setVisible(true);
+    }//GEN-LAST:event_rectArea1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem DNSValidMenu;
@@ -215,6 +231,7 @@ public class assignment4 extends javax.swing.JFrame {
     private javax.swing.JMenu menuButton;
     private javax.swing.JMenuItem mnlineNumber;
     private javax.swing.JMenuItem rectArea;
+    private javax.swing.JMenuItem rectArea1;
     private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 

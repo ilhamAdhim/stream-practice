@@ -5,17 +5,29 @@
  */
 package views;
 
+import controller.Assignment6;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Ilham A
  */
 public class assignment6 extends javax.swing.JFrame {
-
+    Assignment6 controller;
     /**
      * Creates new form assignment6
      */
     public assignment6() {
         initComponents();
+        controller = new Assignment6(this);
+        
     }
 
     /**
@@ -27,11 +39,10 @@ public class assignment6 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtArea = new javax.swing.JTextArea();
+        jFileChooser = new javax.swing.JFileChooser();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtArea1 = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
         btnSave = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
@@ -43,17 +54,13 @@ public class assignment6 extends javax.swing.JFrame {
         mnlineNumber = new javax.swing.JMenuItem();
         rectArea1 = new javax.swing.JMenuItem();
 
-        txtArea.setColumns(20);
-        txtArea.setRows(5);
-        jScrollPane1.setViewportView(txtArea);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Week 6");
 
-        txtArea1.setColumns(20);
-        txtArea1.setRows(5);
-        jScrollPane2.setViewportView(txtArea1);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane2.setViewportView(txtArea);
 
         btnSave.setText("Save File");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +70,11 @@ public class assignment6 extends javax.swing.JFrame {
         });
 
         btnRead.setText("Read File");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadActionPerformed(evt);
+            }
+        });
 
         menuBar.setBackground(new java.awt.Color(204, 204, 255));
         menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -105,7 +117,6 @@ public class assignment6 extends javax.swing.JFrame {
         menuButton.add(rectArea);
 
         mnlineNumber.setText("Line Number");
-        mnlineNumber.setEnabled(false);
         mnlineNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnlineNumberActionPerformed(evt);
@@ -114,6 +125,7 @@ public class assignment6 extends javax.swing.JFrame {
         menuButton.add(mnlineNumber);
 
         rectArea1.setText("Pushback Assignment");
+        rectArea1.setEnabled(false);
         rectArea1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rectArea1ActionPerformed(evt);
@@ -200,11 +212,18 @@ public class assignment6 extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        controller.save();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void rectArea1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rectArea1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_rectArea1ActionPerformed
+
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+        // TODO add your handling code here:
+        controller.open();
+    }//GEN-LAST:event_btnReadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,8 +263,8 @@ public class assignment6 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnSave;
+    private javax.swing.JFileChooser jFileChooser;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuButton;
@@ -256,6 +275,63 @@ public class assignment6 extends javax.swing.JFrame {
     private javax.swing.JMenuItem rectArea;
     private javax.swing.JMenuItem rectArea1;
     private javax.swing.JTextArea txtArea;
-    private javax.swing.JTextArea txtArea1;
     // End of variables declaration//GEN-END:variables
+
+    public JFileChooser getLoadFile() {
+        return jFileChooser;
+    }
+
+    public JButton getBtnRead() {
+        return btnRead;
+    }
+
+    public JButton getBtnSave() {
+        return btnSave;
+    }
+
+    public JFileChooser getjFileChooser1() {
+        return jFileChooser;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+
+    public JMenu getMenuButton() {
+        return menuButton;
+    }
+
+    public JMenuItem getMnfilterStream() {
+        return mnfilterStream;
+    }
+
+    public JMenuItem getMnlineNumber() {
+        return mnlineNumber;
+    }
+
+    public JMenuItem getMnreadFile() {
+        return mnreadFile;
+    }
+
+    public JMenuItem getMnsaveByte() {
+        return mnsaveByte;
+    }
+
+    public JMenuItem getRectArea() {
+        return rectArea;
+    }
+
+    public JMenuItem getRectArea1() {
+        return rectArea1;
+    }
+
+    public JTextArea getTxtArea() {
+        return txtArea;
+    }
+
 }
