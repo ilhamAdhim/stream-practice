@@ -147,6 +147,11 @@ public class AreaCalc extends javax.swing.JFrame {
 
         jLabel2.setText("Length");
 
+        txtLength.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtLengthCaretUpdate(evt);
+            }
+        });
         txtLength.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLengthActionPerformed(evt);
@@ -155,6 +160,11 @@ public class AreaCalc extends javax.swing.JFrame {
 
         jLabel3.setText("Width");
 
+        txtWidth.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtWidthCaretUpdate(evt);
+            }
+        });
         txtWidth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtWidthActionPerformed(evt);
@@ -193,6 +203,7 @@ public class AreaCalc extends javax.swing.JFrame {
         });
 
         btnCalculate.setText("Calculate");
+        btnCalculate.setEnabled(false);
         btnCalculate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalculateActionPerformed(evt);
@@ -459,6 +470,25 @@ public class AreaCalc extends javax.swing.JFrame {
         this.setVisible(false);
         view.setVisible(true);
     }//GEN-LAST:event_rectArea1ActionPerformed
+
+    private void txtLengthCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtLengthCaretUpdate
+        // TODO add your handling code here:
+        if(txtLength.getText().isEmpty() || txtWidth.getText().isEmpty()){
+            btnCalculate.setEnabled(false);
+        }else{
+            btnCalculate.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtLengthCaretUpdate
+
+    private void txtWidthCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtWidthCaretUpdate
+        // TODO add your handling code here:
+                // TODO add your handling code here:
+        if(txtLength.getText().isEmpty() || txtWidth.getText().isEmpty()){
+            btnCalculate.setEnabled(false);
+        }else{
+            btnCalculate.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtWidthCaretUpdate
 
 
     public JTextField getTxtLength() {
