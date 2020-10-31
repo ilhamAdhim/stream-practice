@@ -334,6 +334,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtLength">
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtLengthCaretUpdate"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLengthActionPerformed"/>
       </Events>
     </Component>
@@ -344,6 +345,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtWidth">
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtWidthCaretUpdate"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtWidthActionPerformed"/>
       </Events>
     </Component>
@@ -401,6 +403,7 @@
     <Component class="javax.swing.JButton" name="btnCalculate">
       <Properties>
         <Property name="text" type="java.lang.String" value="Calculate"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalculateActionPerformed"/>
