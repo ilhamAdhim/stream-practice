@@ -50,7 +50,7 @@ public class assignment5 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Praktikum 5");
+        jLabel1.setText("Line Number Input Stream");
 
         txtArea.setColumns(20);
         txtArea.setRows(5);
@@ -135,15 +135,15 @@ public class assignment5 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 198, Short.MAX_VALUE)
                         .addComponent(btnSave)
                         .addGap(18, 18, 18)
                         .addComponent(btnRead)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
