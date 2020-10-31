@@ -196,6 +196,7 @@ public class AreaCalc extends javax.swing.JFrame {
         });
 
         btnClear.setText("Clear");
+        btnClear.setEnabled(false);
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
@@ -284,9 +285,9 @@ public class AreaCalc extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPerimeter, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,7 +339,7 @@ public class AreaCalc extends javax.swing.JFrame {
                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,8 +476,10 @@ public class AreaCalc extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(txtLength.getText().isEmpty() || txtWidth.getText().isEmpty()){
             btnCalculate.setEnabled(false);
+            btnClear.setEnabled(false);
         }else{
             btnCalculate.setEnabled(true);
+            btnClear.setEnabled(true);
         }
     }//GEN-LAST:event_txtLengthCaretUpdate
 
@@ -485,8 +488,10 @@ public class AreaCalc extends javax.swing.JFrame {
                 // TODO add your handling code here:
         if(txtLength.getText().isEmpty() || txtWidth.getText().isEmpty()){
             btnCalculate.setEnabled(false);
+            btnClear.setEnabled(false);
         }else{
             btnCalculate.setEnabled(true);
+            btnClear.setEnabled(true);
         }
     }//GEN-LAST:event_txtWidthCaretUpdate
 
